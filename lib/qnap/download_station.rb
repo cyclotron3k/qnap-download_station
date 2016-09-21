@@ -17,6 +17,15 @@ module Qnap
 			addon:   [:query, :enable, :verify, :install, :uninstall, :search],
 		}
 
+		def self.session(*args)
+			ds = self.new *args
+			begin
+				yield ds
+			ensure
+				ds.logout
+			end
+		end
+
 		def logout
 			return unless @sid
 
@@ -62,7 +71,7 @@ module Qnap
 
 		def uri_for_path(app, endpoint)
 			path = [app, endpoint].map { |s| s.to_s.gsub(/(^|_)(.)/){ $2.upcase } }.join "/"
-			URI("#{PROTOCOL}://#{@host}/#{APP_NAME}/#{API_VERSION}/#{path}")
+			URI "#{PROTOCOL}://#{@host}/#{APP_NAME}/#{API_VERSION}/#{path}"
 		end
 
 		def despatch_query(uri, params)
@@ -81,8 +90,7 @@ module Qnap
 			data = JSON.parse response.read_body, symbolize_names: true
 
 			if (data.key?(:error) and data[:error] > 0)
-				pp data
-				raise RuntimeError.new data[:reason]
+				raise RuntimeError.new "Error response from #{uri} -> #{data}"
 			end
 
 			data

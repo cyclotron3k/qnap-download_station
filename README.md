@@ -24,6 +24,17 @@ active_downloads = ds.task_query
 ds.logout
 ```
 
+```ruby
+# Alternative syntax to guarantee logout
+
+Qnap::DownloadStation.session('192.168.1.100', 'username', 'password') do |ds|
+	ds.task_add_url temp: 'Download', move: 'Multimedia/New', url: magnet_link
+	pp ds.task_query
+	# logout is automatically called, even if there was an exception
+end
+
+```
+
 Available methods
 -------
 
