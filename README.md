@@ -1,9 +1,9 @@
 Qnap::DownloadStation
 =======
 
-This gem provides an interface to the Download Station app that comes installed by default on many QNAP NAS
+This gem provides an interface to the Download Station app that comes installed by default on many QNAP NAS.
 
-It proves access to all endpoints, but only a few have been documented.
+It provides access to all available endpoints, but only a few have been documented.
 
 Installation
 -------
@@ -52,7 +52,7 @@ Available methods
 * misc_logout
 * misc_socks_5
 
-**Rss methods**
+**RSS methods**
 * rss_add
 * rss_add_job
 * rss_query
@@ -78,8 +78,9 @@ Available methods
 * task_status
 * task_stop
 
-Notes and known issues
+TODO
 -------
 
-* Needs inputs validation
-* Need to allow users to specify a SSL cert instead of just ignoring certificate errors
+* Document the endpoints
+* Input validation
+* Allow users to specify a SSL cert instead of just ignoring certificate errors
