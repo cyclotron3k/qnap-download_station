@@ -14,20 +14,23 @@ Usage
 -------
 
 ```ruby
+# Download a Linux ISO from the web
 require 'qnap/download_station'
 
-magnet_link = "magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a&dn"
+ubuntu_iso = "http://de.releases.ubuntu.com/16.04/ubuntu-16.04.1-desktop-amd64.iso"
 
 ds = Qnap::DownloadStation.new '192.168.1.100', 'username', 'password'
-ds.task_add_url temp: 'Download', move: 'Multimedia/New', url: magnet_link
+ds.task_add_url temp: 'Download', move: 'Multimedia/New', url: ubuntu_iso
 active_downloads = ds.task_query
 ds.logout
 ```
 
 ```ruby
 # Alternative syntax to guarantee logout
+# Start downloading a file over BitTorrent using a Magnet link
 
 Qnap::DownloadStation.session('192.168.1.100', 'username', 'password') do |ds|
+	magnet_link = "magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a&dn"
 	ds.task_add_url temp: 'Download', move: 'Multimedia/New', url: magnet_link
 	pp ds.task_query
 	# logout is automatically called, even if there was an exception
