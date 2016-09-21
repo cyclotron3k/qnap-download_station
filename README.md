@@ -1,2 +1,85 @@
-# qnap-download_station
-Qnap::DownloadStation - an API
+Qnap::DownloadStation
+=======
+
+This gem provides an interface to the Download Station app that comes installed by default on many QNAP NAS
+
+It proves access to all endpoints, but only a few have been documented.
+
+Installation
+-------
+
+`gem install qnap-download_station`
+
+Usage
+-------
+
+```ruby
+require 'qnap/download_station'
+
+magnet_link = "magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a&dn"
+
+ds = Qnap::DownloadStation.new '192.168.1.100', 'username', 'password'
+ds.task_add_url temp: 'Download', move: 'Multimedia/New', url: magnet_link
+active_downloads = ds.task_query
+ds.logout
+```
+
+Available methods
+-------
+
+**Account methods**
+* account_add
+* account_query
+* account_remove
+* account_update
+
+**Addon methods**
+* addon_enable
+* addon_install
+* addon_query
+* addon_search
+* addon_uninstall
+* addon_verify
+
+**Config methods**
+* config_get
+* config_set
+
+**Misc methods**
+* misc_dir
+* misc_env
+* misc_login
+* misc_logout
+* misc_socks_5
+
+**Rss methods**
+* rss_add
+* rss_add_job
+* rss_query
+* rss_query_feed
+* rss_query_job
+* rss_remove
+* rss_remove_job
+* rss_update
+* rss_update_feed
+* rss_update_job
+
+**Tasks**
+* task_add_torrent
+* task_add_url
+* task_detail
+* task_get_file
+* task_pause
+* task_priority
+* task_query
+* task_remove
+* task_set_file
+* task_start
+* task_status
+* task_stop
+
+Notes and known issues
+-------
+
+* Needs inputs validation
+* Need to allow users to specify a SSL cert instead of just ignoring certificate errors
