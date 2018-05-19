@@ -10,7 +10,7 @@ module Qnap
 		API_VERSION = 'V4'
 		API_METHODS = {
 			misc:    [:dir, :env, :login, :logout, :socks_5],
-			task:    [:status, :query, :detail, :add_url, :add_torrent, :start, :stop, :pause, :remove, :priority, :get_file, :set_file],
+			task:    [:status, :query, :detail, :add_url, :add_torrent, :start, :stop, :pause, :remove, :priority, :get_file, :set_file, :get_torrent_file],
 			rss:     [:add, :query, :update, :remove, :query_feed, :update_feed, :add_job, :query_job, :update_job, :remove_job],
 			config:  [:get, :set],
 			account: [:add, :query, :update, :remove],

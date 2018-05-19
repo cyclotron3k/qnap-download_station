@@ -83,6 +83,7 @@ Available methods
 * task_add_url
 * task_detail
 * task_get_file
+* task_get_torrent_file
 * task_pause
 * task_priority
 * task_query
