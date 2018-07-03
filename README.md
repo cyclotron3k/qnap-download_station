@@ -5,6 +5,10 @@ This gem provides an interface to the Download Station app that comes installed 
 
 It provides access to all available endpoints, but only a few have been documented.
 
+If you can help document the endpoints, and provide example use cases, please feel free to send pull requests.
+
+This software is an unofficial client for the QNAP api, and is not endorsed by QNAP. Future updates to your QNAP could possibly break the functionality of this library wihout warning.
+
 Installation
 -------
 
@@ -17,7 +21,7 @@ Usage
 # Download a Linux ISO from the web
 require 'qnap/download_station'
 
-ubuntu_iso = "http://de.releases.ubuntu.com/16.04/ubuntu-16.04.1-desktop-amd64.iso"
+ubuntu_iso = "http://de.releases.ubuntu.com/18.04/ubuntu-18.04-desktop-amd64.iso"
 
 ds = Qnap::DownloadStation.new '192.168.1.100', 'username', 'password'
 ds.task_add_url temp: 'Download', move: 'Multimedia/New', url: ubuntu_iso
