@@ -7,7 +7,7 @@ It provides access to all available endpoints, but only a few have been document
 
 If you can help document the endpoints, and provide example use cases, please feel free to send pull requests.
 
-This software is an unofficial client for the QNAP api, and is not endorsed by QNAP. Future updates to your QNAP could possibly break the functionality of this library wihout warning.
+This software is an unofficial client for the QNAP api, and is not endorsed by QNAP. Future updates to your QNAP could possibly break the functionality of this library without warning.
 
 Installation
 -------
