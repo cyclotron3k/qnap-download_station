@@ -60,7 +60,11 @@ module Qnap
 			@sid ||= misc_login(user: @username, pass: Base64.encode64(@password))[:sid]
 		end
 
-		def initialize(host, username, password)
+		def initialize(host, username = ENV['QNAP_USERNAME'], password = ENV['QNAP_PASSWORD'])
+
+			raise ArgumentError.new("No username defined") if username.nil?
+			raise ArgumentError.new("No password defined") if password.nil?
+
 			@host     = host
 			@username = username
 			@password = password

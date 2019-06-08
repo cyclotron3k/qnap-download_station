@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
 	s.name         = "qnap-download_station"
-	s.version      = "0.0.3"
+	s.version      = "0.0.4"
 	s.summary      = "Interface to the Download Station API"
 	s.description  = "Manage your downloads in Download Station"
 	s.authors      = "cyclotron3k"

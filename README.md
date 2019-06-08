@@ -42,6 +42,21 @@ end
 
 ```
 
+Alternatively, if the username and password are not provided, Qnap::DownloadStation will attempt to read them from environment variables.
+```ruby
+# ENV['QNAP_USERNAME']
+# ENV['QNAP_PASSWORD']
+
+ds = Qnap::DownloadStation.new '192.168.1.100'
+# ...
+ds.logout
+
+# or...
+Qnap::DownloadStation.session('192.168.1.100') do |ds|
+	# ...
+end
+```
+
 Available methods
 -------
 
