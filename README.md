@@ -1,6 +1,8 @@
 Qnap::DownloadStation
 =======
 
+> NOTE: This library works with older QNAP NAS models that use QTS 4.x. Newer models are now being released with QTS 5.x, and most likely this library will not work with them. Patches welcome.
+
 This gem provides an interface to the Download Station app that comes installed by default on many QNAP NAS.
 
 It provides access to all available endpoints, but only a few have been documented.
